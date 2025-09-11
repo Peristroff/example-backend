@@ -13,8 +13,10 @@ mongoose.connect(url)
   .catch(err => console.error("MongoDB connection error:", err));
 
 // Users routes
-const userRoutes = require("./src/routes/UserRoutes.tsx")
+const userRoutes = require("./src/routes/UserRoutes")
 app.use("/users", userRoutes)
+const apis = require("./src/routes/PictureRoutes")
+app.use("/api/", apis)
 
 // Test endpoint
 app.get("/", (req, res) => {
